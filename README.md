@@ -1,16 +1,16 @@
 # Desafio Backend: Picpay Simplificado 💵
 
-Essa é a minha proposta de solução para o desafio popular da entrevista da vaga de desenvolvedor do Picpay. 
+Essa é a minha proposta de solução para o desafio popular da entrevista da vaga de desenvolvedor do Picpay.
 
 Em resumo, o desafio técnico proposto envolve o desenvolvimento de uma aplicação que simula um sistema simplificado de transferência de dinheiro entre dois tipos de usuários: comuns e lojistas.
 
 ## O que é o desafio?
 
-O desafio encontrado no GitHub do PicPay, originalmente parte do processo de entrevista para a vaga de analista na empresa, ganhou popularidade na internet. 
+O desafio encontrado no GitHub do PicPay, originalmente parte do processo de entrevista para a vaga de analista na empresa, ganhou popularidade na internet.
 
 Desde então, sua resolução se tornou uma excelente maneira de aplicar conceitos de API Rest e explorar tecnologias backend. Por isso, decidi resolvê-lo para treinar minhas habilidades.
 
-O desafio pode ser encontrado aqui: https://github.com/PicPay/picpay-desafio-backend
+O desafio pode ser encontrado aqui: [Desafio Backend PicPay](https://github.com/PicPay/picpay-desafio-backend)
 
 ## Requisitos da Aplicação ✅
 
@@ -74,11 +74,13 @@ INSERT INTO users (fullname, cpf, email, password, balance, UserTypeEnum) VALUES
 * Arquitetura Hexagonal
 
 ### Diagrama de Contexto
+
 Abaixo é possível entender o fluxo da aplicação de maneira simplificada.
 
 ![Diagrama de Contexto](img/image.png)
 
 ### Endpoints
+
 ```json
 POST /transfer
 //Realiza nova transferência
@@ -90,17 +92,17 @@ Content-Type: application/json
   "value": 10.0
 }
 ```
+
 ```json
-//Lista histórico de transferências
 GET /history
+//Lista histórico de transferências
 ```
 
 ```json
+GET /users
 //Lista usuários cadastrados
 
 // É importante ressaltar que o cadastro de usuários está sendo feito diretamente no arquivo data.sql. 
-
-GET /users
 ```
 
 ### Como executar
