@@ -152,3 +152,4 @@ GET localhost:8080/users
 * Usar kafka para consumir notificações
 * Trocar banco H2
 * Modificar endpoint para mostrar histórico das transações de apenas um usuário
+* Estudar maneiras de melhorar os mocks
