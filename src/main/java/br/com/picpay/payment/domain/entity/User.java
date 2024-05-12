@@ -38,7 +38,7 @@ public class User {
   @Column(name = "balance")
   double balance;
 
-  @Column(name = "usertype")
+  @Column(name = "usertypeenum")
   @Enumerated(EnumType.STRING)
-  UserTypeEnum usertype;
+  UserTypeEnum usertypeenum;
 }

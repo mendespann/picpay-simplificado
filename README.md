@@ -73,7 +73,6 @@ INSERT INTO users (fullname, cpf, email, password, balance, UserTypeEnum) VALUES
 * H2
 * Apache Kafka
 * Docker
-* Arquitetura Hexagonal
 * JUnit e Mockito para testes unitários
 
 ## Arquitetura

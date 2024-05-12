@@ -1,5 +1,7 @@
 package br.com.picpay.payment.domain.usecase;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import br.com.picpay.payment.domain.entity.Transaction;
@@ -28,7 +30,7 @@ public class TransferUseCase {
     User payer = userRepository.findById(payerId).orElseThrow(() -> new UserNotFoundException());
     User payee = userRepository.findById(payeeId).orElseThrow(() -> new UserNotFoundException());
 
-    if(payer.getUsertype().equals(UserTypeEnum.MERCHANT)) {
+    if (payer.getUsertypeenum().equals(UserTypeEnum.MERCHANT)) {
       throw new MerchantNotAllowedException();
     }
 
@@ -45,5 +47,9 @@ public class TransferUseCase {
     Transaction transaction = new Transaction(payer.getUserId(), payee.getUserId(), value);
     transactionRepository.save(transaction);
     log.info("Transaction saved: {}", transaction);
+  }
+
+  public List<Transaction> getAllTransactions() {
+    return transactionRepository.findAll();
   }
 }
