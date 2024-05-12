@@ -15,15 +15,11 @@ import br.com.picpay.payment.infrastructure.database.repository.TransactionRepos
 import br.com.picpay.payment.infrastructure.database.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
 @AllArgsConstructor
-@Builder
-@NoArgsConstructor
 @Slf4j
 @Data
 public class TransferUseCase implements TransferService{

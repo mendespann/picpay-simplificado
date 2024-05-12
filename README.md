@@ -37,14 +37,14 @@ Esses foram os requisitos definidos no enunciado original.
 * Consultar um mock de serviço autorizador externo antes de finalizar a transferência.
 Link: <https://run.mocky.io/v3/5794d450-d2e2-4412-8131-73d0293ac1cc>
 
-> **Observação:** O serviço se encontra indisponível atualmente. Foi necessário criar um mock novo no mock.io. O mock retorn status http 200.
+> **Observação:** O serviço se encontra indisponível atualmente. Foi necessário criar um mock novo no mock.io. O mock retorna status http 200.
 
 ### Notificação de Pagamento
 
 * Usar um mock de serviço de notificação externo para simular o envio de notificações para usuário ou lojista que recebeu o pagamento.
 Link: <https://run.mocky.io/v3/54dc2cf1-3add-45b5-b5a9-6bf7e7f1f4a6>
 
-> **Observação:** O serviço se encontra indisponível atualmente. Foi necessário criar um mock novo no mock.io. O mock retorn status http 200.
+> **Observação:** O serviço se encontra indisponível atualmente. Foi necessário criar um mock novo no mock.io. O mock retorna status http 200.
 
 ### Serviço RESTful
 
