@@ -10,7 +10,7 @@ O desafio encontrado no GitHub do PicPay, originalmente parte do processo de ent
 
 Desde então, sua resolução se tornou uma excelente maneira de aplicar conceitos de API Rest e explorar tecnologias backend. Por isso, decidi resolvê-lo para treinar minhas habilidades.
 
-O desafio pode ser encontrado aqui: [Desafio Backend PicPay](https://github.com/PicPay/picpay-desafio-backend)
+O desafio pode ser encontrado aqui: <https://github.com/PicPay/picpay-desafio-backend>
 
 ## Requisitos da Aplicação ✅
 
@@ -24,7 +24,7 @@ Esses foram os requisitos definidos no enunciado original.
 
 ### Transferências de Dinheiro
 
-* Usuários comuns e lojistas podem enviar dinheiro para outros usuários e lojistas.
+* Usuários comuns podem enviar dinheiro para outros usuários comuns e lojistas.
 * Lojistas apenas recebem transferências e não podem enviar dinheiro.
 * É necessário validar o saldo do usuário antes da transferência.
 
@@ -34,11 +34,13 @@ Esses foram os requisitos definidos no enunciado original.
 
 ### Autorização de Transferência
 
-* Consultar um mock de serviço autorizador externo antes de finalizar a transferência
+* Consultar um mock de serviço autorizador externo antes de finalizar a transferência.
+Link: <https://run.mocky.io/v3/5794d450-d2e2-4412-8131-73d0293ac1cc>
 
 ### Notificação de Pagamento
 
 * Usar um mock de serviço de notificação externo para simular o envio de notificações para usuário ou lojista que recebeu o pagamento.
+Link: <https://run.mocky.io/v3/54dc2cf1-3add-45b5-b5a9-6bf7e7f1f4a6>
 
 ### Serviço RESTful
 
@@ -63,7 +65,7 @@ INSERT INTO users (fullname, cpf, email, password, balance, UserTypeEnum) VALUES
 INSERT INTO users (fullname, cpf, email, password, balance, UserTypeEnum) VALUES ('Crystal', '123.456.783-00', 'crystal@hotmail.com', '123', 200.0, 'MERCHANT');
 ```
 
-### Tecnologias 💻
+## Tecnologias 💻
 
 * Java
 * Spring Boot
@@ -72,14 +74,15 @@ INSERT INTO users (fullname, cpf, email, password, balance, UserTypeEnum) VALUES
 * Apache Kafka
 * Docker
 * Arquitetura Hexagonal
+* JUnit e Mockito para testes unitários
 
-### Diagrama de Contexto
+## Arquitetura
 
 Abaixo é possível entender o fluxo da aplicação de maneira simplificada.
 
 ![Diagrama de Contexto](img/image.png)
 
-### Endpoints
+## Endpoints
 
 Realiza nova transferência
 
