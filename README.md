@@ -61,6 +61,8 @@ Essa abordagem mantém o código organizado e facilita a manutenção e evoluç�
 A escolha do banco de dados H2 e do Spring Data JPA para este projeto foi motivada por razões como: O H2 é um banco de dados em memória, o que significa que ele é criado e preenchido cada vez que a aplicação é iniciada, e deletado quando a aplicação é encerrada. Além disso, o Spring Data JPA define repositórios para entidades, que fornecem operações comuns de banco de dados.
 Ainda, H2 e Spring Data JPA tem uma configuração simplificada e funcionam bem juntos.
 
+Além disso, criei 2 novos endpoints: /history para visualizar todas a transaçoes e /users para visualizar os usuários cadastrados.
+
 Por fim, é importante ressaltar que os usuários estão sendo inseridos diretamente no banco, porque não era um requisito do desafio original. A inserção está no script **data.sql**, e seus ids são gerados automaticamente. Então, uma nova feature a ser implantada é o sistema de cadastro de usuários.
 
 ```SQL
@@ -80,7 +82,7 @@ INSERT INTO users (fullname, cpf, email, password, balance, UserTypeEnum) VALUES
 
 ## Arquitetura 📁
 
-Abaixo é possível entender o fluxo da aplicação de maneira simplificada.
+A partir do diagrama de contexto, é possível entender melhor o fluxo da aplicação.
 
 ![Diagrama de Contexto](img/image.png)
 
@@ -93,6 +95,8 @@ Alguns diferenciais que não foram solicitados no desafio:
 * Testes Unitários
 * Documentação Swagger
 * Criação de novos mocks
+* Endpoint histórico
+* Endpoint usuários
 
 ## Como executar
 
@@ -145,4 +149,6 @@ GET localhost:8080/users
 ## Ideias de melhorias
 
 * Criar sistema de cadastro de usuários
-* Implantar sistema de notificacao por email
+* Usar kafka para consumir notificações
+* Trocar banco H2
+* Modificar endpoint para mostrar histórico das transações de apenas um usuário
