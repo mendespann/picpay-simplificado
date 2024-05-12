@@ -17,3 +17,6 @@ spring:
   sql:
     init:
       mode: always
+mock:
+  authorization:
+    url: https://run.mocky.io/v3/5165f018-4b98-4d94-b0bc-637b64d6b1b6

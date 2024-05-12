@@ -22,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 public class TransferUseCase {
   private UserRepository userRepository;
   private TransactionRepository transactionRepository;
+  private AuthorizationUseCase authorizationUseCase;
 
   @Transactional
   public void transfer(Long payerId, Long payeeId, double value) {
@@ -45,6 +46,9 @@ public class TransferUseCase {
     userRepository.save(payee);
 
     Transaction transaction = new Transaction(payer.getUserId(), payee.getUserId(), value);
+
+    authorizationUseCase.authorizeTransaction(transaction);
+
     transactionRepository.save(transaction);
     log.info("Transaction saved: {}", transaction);
   }
