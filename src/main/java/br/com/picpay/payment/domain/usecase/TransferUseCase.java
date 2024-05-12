@@ -19,10 +19,6 @@ public class TransferUseCase {
   private TransactionRepository transactionRepository;
 
   public void transfer(Long payerId, Long payeeId, double value) {
-
-    if (payerId == null || payeeId == null) {
-      throw new IllegalArgumentException("payerId e payeeId não podem ser nulos");
-    }
     userRepository.findAll().forEach(user -> System.out.println(user));
 
     User payer = userRepository.findById(payerId).orElseThrow(() -> new UserNotFoundException());
