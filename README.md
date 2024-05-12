@@ -81,7 +81,7 @@ Abaixo é possível entender o fluxo da aplicação de maneira simplificada.
 
 ### Endpoints
 
-```json
+```java
 POST /transfer
 //Realiza nova transferência
 Content-Type: application/json
@@ -93,12 +93,12 @@ Content-Type: application/json
 }
 ```
 
-```json
+```java
 GET /history
 //Lista histórico de transferências
 ```
 
-```json
+```java
 GET /users
 //Lista usuários cadastrados
 
