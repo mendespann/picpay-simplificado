@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: br.com.picpay.payment.domain.usecase.TransferUseCaseTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.487 s <<< FAILURE! -- in br.com.picpay.payment.domain.usecase.TransferUseCaseTest
+br.com.picpay.payment.domain.usecase.TransferUseCaseTest.testTransfer -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "br.com.picpay.payment.domain.usecase.AuthorizationUseCase.authorizeTransaction(br.com.picpay.payment.domain.entity.Transaction)" because "this.authorizationUseCase" is null
+	at br.com.picpay.payment.domain.usecase.TransferUseCase.transfer(TransferUseCase.java:51)
+	at br.com.picpay.payment.domain.usecase.TransferUseCaseTest.testTransfer(TransferUseCaseTest.java:47)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+

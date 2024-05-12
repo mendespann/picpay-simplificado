@@ -20,3 +20,6 @@ spring:
 mock:
   authorization:
     url: https://run.mocky.io/v3/5165f018-4b98-4d94-b0bc-637b64d6b1b6
+  notification:
+    url: https://run.mocky.io/v3/5165f018-4b98-4d94-b0bc-637b64d6b1b6
+

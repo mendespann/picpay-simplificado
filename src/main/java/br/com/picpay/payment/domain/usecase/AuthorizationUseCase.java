@@ -6,14 +6,18 @@ import org.springframework.web.client.RestTemplate;
 
 import br.com.picpay.payment.domain.entity.Transaction;
 import br.com.picpay.payment.domain.handler.AuthorizationException;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import br.com.picpay.payment.domain.ports.AuthorizationService;
 
 @Service
 @Slf4j
-public class AuthorizationUseCase {
+@Data
+public class AuthorizationUseCase implements AuthorizationService {
   @Autowired
   private RestTemplate restTemplate;
 
@@ -22,8 +26,13 @@ public class AuthorizationUseCase {
 
   public void authorizeTransaction(Transaction transaction) throws AuthorizationException {
     try {
-      this.restTemplate.getForObject(authorizationServiceUrl, String.class);
-      log.info("Transaction authorized, Id: {}", transaction.getTransactionId());
+      ResponseEntity<String> responseEntity = this.restTemplate.getForEntity(authorizationServiceUrl, String.class);
+
+      if (responseEntity.getStatusCode().value() == 200) {
+        log.info("Transaction authorized.");
+      } else {
+        throw new AuthorizationException();
+      }
     } catch (RestClientException e) {
       throw new AuthorizationException();
     }

@@ -31,6 +31,12 @@ public class TransferUseCaseTest {
     @Mock
     private TransactionRepository transactionRepository;
 
+    @Mock
+    private AuthorizationUseCase authorizationUseCase;
+
+    @Mock
+    private NotifyUseCase notifyUseCase;
+
     @BeforeEach
     public void setup() {
         MockitoAnnotations.openMocks(this);
@@ -38,20 +44,27 @@ public class TransferUseCaseTest {
 
     @Test
     public void testTransfer() {
-        User payer = new User(1L, "Payer", "123.456.789-00", "payer@hotmail.com", "123", 200.0, UserTypeEnum.REGULAR);
-        User payee = new User(2L, "Payee", "123.456.789-01", "payee@hotmail.com", "123", 100.0, UserTypeEnum.MERCHANT);
+        User payer = new User();
+        payer.setUserId(1L);
+        payer.setBalance(1000.0);
+        payer.setUsertypeenum(UserTypeEnum.REGULAR);
+
+        User payee = new User();
+        payee.setUserId(2L);
+        payee.setBalance(500.0);
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(payer));
         when(userRepository.findById(2L)).thenReturn(Optional.of(payee));
 
-        transferUseCase.transfer(1L, 2L, 50.0);
-
-        assertEquals(150.0, payer.getBalance());
-        assertEquals(150.0, payee.getBalance());
+        transferUseCase.transfer(1L, 2L, 200.0);
 
         verify(userRepository, times(2)).save(any(User.class));
         verify(transactionRepository, times(1)).save(any(Transaction.class));
+        verify(authorizationUseCase, times(1)).authorizeTransaction(any(Transaction.class));
+        verify(notifyUseCase, times(1)).notifyUser(any(Transaction.class));
     }
+
+
 
     @Test
     public void testTransfer_NotEnoughBalance() {

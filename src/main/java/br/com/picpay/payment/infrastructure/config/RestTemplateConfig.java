@@ -1,4 +1,4 @@
-package br.com.picpay.payment.domain.config;
+package br.com.picpay.payment.infrastructure.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

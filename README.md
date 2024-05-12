@@ -1,10 +1,10 @@
-# Desafio Backend: Picpay Simplificado 💵
+# Desafio Backend: Picpay Simplificado 💰
 
 Essa é a minha proposta de solução para o desafio popular da entrevista da vaga de desenvolvedor do Picpay.
 
 Em resumo, o desafio técnico proposto envolve o desenvolvimento de uma aplicação que simula um sistema simplificado de transferência de dinheiro entre dois tipos de usuários: comuns e lojistas.
 
-## O que é o desafio?
+## O que é o desafio? 🤔
 
 O desafio encontrado no GitHub do PicPay, originalmente parte do processo de entrevista para a vaga de analista na empresa, ganhou popularidade na internet.
 
@@ -37,16 +37,20 @@ Esses foram os requisitos definidos no enunciado original.
 * Consultar um mock de serviço autorizador externo antes de finalizar a transferência.
 Link: <https://run.mocky.io/v3/5794d450-d2e2-4412-8131-73d0293ac1cc>
 
+> **Observação:** O serviço se encontra indisponível atualmente. Foi necessário criar um mock novo no mock.io. O mock retorn status http 200.
+
 ### Notificação de Pagamento
 
 * Usar um mock de serviço de notificação externo para simular o envio de notificações para usuário ou lojista que recebeu o pagamento.
 Link: <https://run.mocky.io/v3/54dc2cf1-3add-45b5-b5a9-6bf7e7f1f4a6>
 
+> **Observação:** O serviço se encontra indisponível atualmente. Foi necessário criar um mock novo no mock.io. O mock retorn status http 200.
+
 ### Serviço RESTful
 
 * Desenvolvimento de um serviço RESTful para toda a aplicação.
 
-## Solução
+## Solução 🔍
 
 Com base no enunciado, escolhi utilizar o framework Spring do Java para desenvolver a solução.
 
@@ -71,24 +75,52 @@ INSERT INTO users (fullname, cpf, email, password, balance, UserTypeEnum) VALUES
 * Spring Boot
 * Spring Data JPA
 * H2
-* Apache Kafka
-* Docker
 * JUnit e Mockito para testes unitários
+* Swagger
 
-## Arquitetura
+## Arquitetura 📁
 
 Abaixo é possível entender o fluxo da aplicação de maneira simplificada.
 
 ![Diagrama de Contexto](img/image.png)
 
+## Diferenciais
+
+Alguns diferenciais que não foram solicitados no desafio:
+
+* Arquitetura Hexagonal
+* Tratamento de exceções
+* Testes Unitários
+* Documentação Swagger
+* Criação de novos mocks
+
+## Como executar
+
+1. Clonar repositório git:
+
+```text
+git clone https://github.com/mendespann/picpay-simplificado.git
+```
+
+2. Instalar dependências.
+
+```text
+mvn clean install
+```
+
+3. Executar a aplicação Spring Boot.
+
+4. Testar endpoints através do postman ou da url
+<http://localhost:8080/swagger-ui/index.html#/>
+
 ## Endpoints
 
-Realiza nova transferência
+Para criar nova transferência:
+
+POST:
 
 ```java
-POST /transfer
-Content-Type: application/json
-
+POST localhost:8080/transfer
 {
   "payerId": 1,
   "payeeId": 2,
@@ -96,60 +128,21 @@ Content-Type: application/json
 }
 ```
 
-Lista histórico de transferências
-
-```java
-GET /history
-```
-
-Lista usuários cadastrados
-
-É importante ressaltar que o cadastro de usuários está sendo feito diretamente no arquivo data.sql.
-
-```java
-GET /users
-```
-
-### Como executar
-
-* Clonar repositório git:
-
-`
-git clone https://github.com/mendespann/picpay-simplificado.git
-`
-
-* Iniciar Kafka
-
-`
-docker-compose up
-`
-
-* Executar a aplicação Spring Boot
-
-* **Enviar os endpoint no postman:**
-
-Para criar nova transferência:
-
-POST:
-`
-localhost:8080/transfer
-`
-
 Para ver histórico de transferências:
 
-GET:
-`
-localhost:8080/history
-`
+
+```java
+GET localhost:8080/history
+```
 
 Para ver usuários cadastrados:
 
-GET:
-`
-localhost:8080/users
-`
 
-## Próximos passos
+```java
+GET localhost:8080/users
+```
+
+## Ideias de melhorias
 
 * Criar sistema de cadastro de usuários
-* Trocar banco em memória
+* Implantar sistema de notificacao por email

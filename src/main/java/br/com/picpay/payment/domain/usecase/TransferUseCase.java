@@ -10,19 +10,27 @@ import br.com.picpay.payment.domain.enums.UserTypeEnum;
 import br.com.picpay.payment.domain.handler.MerchantNotAllowedException;
 import br.com.picpay.payment.domain.handler.NotEnoughBalanceException;
 import br.com.picpay.payment.domain.handler.UserNotFoundException;
+import br.com.picpay.payment.domain.ports.TransferService;
 import br.com.picpay.payment.infrastructure.database.repository.TransactionRepository;
 import br.com.picpay.payment.infrastructure.database.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
 @AllArgsConstructor
+@Builder
+@NoArgsConstructor
 @Slf4j
-public class TransferUseCase {
+@Data
+public class TransferUseCase implements TransferService{
   private UserRepository userRepository;
   private TransactionRepository transactionRepository;
   private AuthorizationUseCase authorizationUseCase;
+  private NotifyUseCase notifyUseCase;
 
   @Transactional
   public void transfer(Long payerId, Long payeeId, double value) {
@@ -48,6 +56,7 @@ public class TransferUseCase {
     Transaction transaction = new Transaction(payer.getUserId(), payee.getUserId(), value);
 
     authorizationUseCase.authorizeTransaction(transaction);
+    notifyUseCase.notifyUser(transaction);
 
     transactionRepository.save(transaction);
     log.info("Transaction saved: {}", transaction);
