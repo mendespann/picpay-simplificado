@@ -81,9 +81,10 @@ Abaixo é possível entender o fluxo da aplicação de maneira simplificada.
 
 ### Endpoints
 
+Realiza nova transferência
+
 ```java
 POST /transfer
-//Realiza nova transferência
 Content-Type: application/json
 
 {
@@ -93,16 +94,18 @@ Content-Type: application/json
 }
 ```
 
+Lista histórico de transferências
+
 ```java
 GET /history
-//Lista histórico de transferências
 ```
+
+Lista usuários cadastrados
+
+É importante ressaltar que o cadastro de usuários está sendo feito diretamente no arquivo data.sql.
 
 ```java
 GET /users
-//Lista usuários cadastrados
-
-// É importante ressaltar que o cadastro de usuários está sendo feito diretamente no arquivo data.sql. 
 ```
 
 ### Como executar
