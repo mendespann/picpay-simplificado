@@ -1,29 +1,35 @@
 package br.com.picpay.payment.domain.usecase;
 
+import org.springframework.stereotype.Service;
 
 import br.com.picpay.payment.domain.entity.Transaction;
 import br.com.picpay.payment.domain.entity.User;
+import br.com.picpay.payment.domain.handler.NotEnoughBalanceException;
+import br.com.picpay.payment.domain.handler.UserNotFoundException;
 import br.com.picpay.payment.infrastructure.database.repository.TransactionRepository;
 import br.com.picpay.payment.infrastructure.database.repository.UserRepository;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Service
+@AllArgsConstructor
+@Slf4j
 public class TransferUseCase {
   private UserRepository userRepository;
   private TransactionRepository transactionRepository;
 
-  public TransferUseCase(UserRepository userRepository, TransactionRepository transactionRepository) {
-    this.userRepository = userRepository;
-    this.transactionRepository = transactionRepository;
-}
+  public void transfer(Long payerId, Long payeeId, double value) {
 
-  public void transfer(User payer, User payee, double value) {
-    if (payer.getBalance() < value) {
-      //TODO - Implementar exceção
-      //throw new NotEnoughBalanceException();
+    if (payerId == null || payeeId == null) {
+      throw new IllegalArgumentException("payerId e payeeId não podem ser nulos");
     }
+    userRepository.findAll().forEach(user -> System.out.println(user));
 
-    if (payer == null || payee == null) {
-      //TODO - Implementar exceção
-      //throw new UserNotFoundException();
+    User payer = userRepository.findById(payerId).orElseThrow(() -> new UserNotFoundException());
+    User payee = userRepository.findById(payeeId).orElseThrow(() -> new UserNotFoundException());
+
+    if (payer.getBalance() < value) {
+      throw new NotEnoughBalanceException();
     }
 
     payer.setBalance(payer.getBalance() - value);
@@ -32,7 +38,8 @@ public class TransferUseCase {
     userRepository.save(payer);
     userRepository.save(payee);
 
-    Transaction transaction = new Transaction(null, payer.getUserId(), payee.getUserId(), value);
+    Transaction transaction = new Transaction(payer.getUserId(), payee.getUserId(), value);
     transactionRepository.save(transaction);
+    log.info("Transaction saved: {}", transaction);
   }
 }

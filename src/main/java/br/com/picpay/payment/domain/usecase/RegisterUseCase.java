@@ -9,6 +9,10 @@ import br.com.picpay.payment.infrastructure.database.repository.UserRepository;
 public class RegisterUseCase {
     private UserRepository userRepository;
 
+    public RegisterUseCase(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     public User registerUser(User user) {
         return userRepository.save(user);
     }
