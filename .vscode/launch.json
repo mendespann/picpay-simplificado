@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "PicpayApplication",
+      "request": "launch",
+      "mainClass": "br.com.picpay.PicpayApplication",
+      "projectName": "picpay"
+    }
+  ]
+}

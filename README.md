@@ -100,21 +100,21 @@ Alguns diferenciais que não foram solicitados no desafio:
 
 ## Como executar
 
-1. Clonar repositório git:
+1.Clonar repositório git:
 
 ```text
 git clone https://github.com/mendespann/picpay-simplificado.git
 ```
 
-2. Instalar dependências.
+2.Instalar dependências.
 
 ```text
 mvn clean install
 ```
 
-3. Executar a aplicação Spring Boot.
+3.Executar a aplicação Spring Boot.
 
-4. Testar endpoints através do postman ou da url
+4.Testar endpoints através do postman ou da url
 <http://localhost:8080/swagger-ui/index.html#/>
 
 ## Endpoints
@@ -134,13 +134,11 @@ POST localhost:8080/transfer
 
 Para ver histórico de transferências:
 
-
 ```java
 GET localhost:8080/history
 ```
 
 Para ver usuários cadastrados:
-
 
 ```java
 GET localhost:8080/users
