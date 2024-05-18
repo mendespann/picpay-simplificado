@@ -1,5 +1,10 @@
 package br.com.picpay.payment.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
+import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +22,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "transactions")
 public class Transaction {
   @Id
+  @JsonProperty(access = JsonProperty.Access.READ_ONLY)
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long transactionId;
 

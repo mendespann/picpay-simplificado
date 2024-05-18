@@ -1,3 +1,5 @@
 C:\Users\User\Documents\picpay-simplificado\picpay\src\test\java\br\com\picpay\PicpayApplicationTests.java
-C:\Users\User\Documents\picpay-simplificado\picpay\src\test\java\br\com\picpay\payment\domain\usecase\TransferUseCaseTest.java
-C:\Users\User\Documents\picpay-simplificado\picpay\src\test\java\br\com\picpay\payment\domain\usecase\AuthorizationUseCaseTest.java
+C:\Users\User\Documents\picpay-simplificado\picpay\src\test\java\br\com\picpay\payment\domain\usecase\impl\NotifyUseCaseImplTest.java
+C:\Users\User\Documents\picpay-simplificado\picpay\src\test\java\br\com\picpay\payment\domain\usecase\impl\TransferUseCaseImplTest.java
+C:\Users\User\Documents\picpay-simplificado\picpay\src\test\java\br\com\picpay\payment\domain\usecase\impl\UserManagementUseCaseImplTest.java
+C:\Users\User\Documents\picpay-simplificado\picpay\src\test\java\br\com\picpay\payment\domain\usecase\impl\AuthorizationUseCaseImplTest.java

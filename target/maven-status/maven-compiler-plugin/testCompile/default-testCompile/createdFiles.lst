@@ -1,0 +1,5 @@
+br\com\picpay\payment\domain\usecase\impl\UserManagementUseCaseImplTest.class
+br\com\picpay\payment\domain\usecase\impl\AuthorizationUseCaseImplTest.class
+br\com\picpay\PicpayApplicationTests.class
+br\com\picpay\payment\domain\usecase\impl\TransferUseCaseImplTest.class
+br\com\picpay\payment\domain\usecase\impl\NotifyUseCaseImplTest.class
